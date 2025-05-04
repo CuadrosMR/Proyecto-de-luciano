@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Editar Usuario</h1>
+  <form action="/actualizar/<%= usuario.idusuario %>" method="POST">
+    <input type="text" name="nombre" value="<%= usuario.nombre %>" required><br>
+    <input type="text" name="apellidoPaterno" value="<%= usuario.apellidoPaterno %>" required><br>
+    <input type="text" name="apellidoMaterno" value="<%= usuario.apellidoMaterno %>"><br>
+    <input type="date" name="fechaDeNacimiento" value="<%= usuario.fechaDeNacimiento.toISOString().split('T')[0] %>" required><br>
+    <input type="text" name="problemasDeSalud" value="<%= usuario.problemasDeSalud %>"><br>
+    <input type="text" name="domicilio" value="<%= usuario.domicilio %>" required><br>
+    <input type="text" name="numeroCelular" value="<%= usuario.numeroCelular %>" required><br>
+    <input type="email" name="email" value="<%= usuario.email %>" required><br>
+    <select name="sexo" required>
+      <option value="">Seleccione sexo</option>
+      <option value="Masculino" <%= usuario.sexo === 'Masculino' ? 'selected' : '' %>>Masculino</option>
+      <option value="Femenino" <%= usuario.sexo === 'Femenino' ? 'selected' : '' %>>Femenino</option>
+    </select>
+    <button type="submit">Actualizar</button>
+  </form>
+
+  <br><a href="/">Volver al inicio</a>
+  
+</body>
+</html>

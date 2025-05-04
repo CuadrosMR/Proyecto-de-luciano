@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h2>Agregar Usuario</h2>
+  <form action="/guardar" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre" required><br>
+    <input type="text" name="apellidoPaterno" placeholder="Apellido Paterno" required><br>
+    <input type="text" name="apellidoMaterno" placeholder="Apellido Materno"><br>
+    <input type="date" name="fechaDeNacimiento" required><br>
+    <input type="text" name="problemasDeSalud" placeholder="Problemas de Salud"><br>
+    <input type="text" name="domicilio" placeholder="Domicilio" required><br>
+    <input type="text" name="numeroCelular" placeholder="Número Telefónico" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <select name="sexo" required>
+      <option value="">Seleccione sexo</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+    </select>
+    <button type="submit">Guardar</button>
+  </form>
+
+  <h2>Lista de Usuarios</h2>
+  <table border="1">
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Problemas de Salud</th>
+      <th>Domicilio</th>
+      <th>Número Telefónico</th>
+      <th>Email</th>
+      <th>Sexo</th>
+      <th>Consulta</th>
+    </tr>
+    <% datos.forEach(dato => { %>
+      <tr>
+        <td><%= dato.idusuario %></td>
+        <td><%= dato.nombre %></td>
+        <td><%= dato.apellidoPaterno %></td>
+        <td><%= dato.apellidoMaterno %></td>
+        <td><%= dato.fechaDeNacimiento %></td>
+        <td><%= dato.problemasDeSalud %></td>
+        <td><%= dato.domicilio %></td>
+        <td><%= dato.numeroCelular %></td>
+        <td><%= dato.email %></td>
+        <td><%= dato.sexo %></td>
+        <td>
+          <a href="/usuario/<%= dato.idusuario %>">Consultar datos</a>
+          <a href="/editar/<%= dato.idusuario %>">Editar</a>
+          <a href="/eliminar/<%= dato.idusuario %>" onclick="return confirm('¿Estás seguro de eliminar este usuario?');">Eliminar</a>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detalle del Usuario</h1>
+  <ul>
+    <li><strong>Nombre:</strong> <%= usuario.nombre %></li>
+    <li><strong>Apellido Paterno:</strong> <%= usuario.apellidoPaterno %></li>
+    <li><strong>Apellido Materno:</strong> <%= usuario.apellidoMaterno %></li>
+    <li><strong>Fecha de Nacimiento:</strong> <%= usuario.fechaDeNacimiento %></li>
+    <li><strong>Problemas de Salud:</strong> <%= usuario.problemasDeSalud %></li>
+    <li><strong>Domicilio:</strong> <%= usuario.domicilio %></li>
+    <li><strong>Número Celular:</strong> <%= usuario.numeroCelular %></li>
+    <li><strong>Email:</strong> <%= usuario.email %></li>
+    <li><strong>Sexo:</strong> <%= usuario.sexo %></li>
+  </ul>
+
+  <a href="/">Volver al inicio</a>
+  <br><br>
+  <form action="/eliminar/<%= usuario.idusuario %>" method="GET" onsubmit="return confirm('¿Seguro que deseas eliminar este usuario?');">
+    <button type="submit">Eliminar Usuario</button>
+  </form>
+</body>
+</html>
